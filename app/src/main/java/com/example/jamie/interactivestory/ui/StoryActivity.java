@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.jamie.interactivestory.R;
 import com.example.jamie.interactivestory.model.Page;
-import com.example.jamie.interactivestory.model.Story;
+
 
 public class StoryActivity extends AppCompatActivity {
 
@@ -60,7 +60,7 @@ public class StoryActivity extends AppCompatActivity {
         pageText = String.format(pageText, name);
         storyTextView.setText(pageText);
 
-        choice1Button.setText(page.getChoice1().getTextId());
+        choice1Button.setText(Integer.toString(page.getChoice1().getTextId()));
         choice1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +69,7 @@ public class StoryActivity extends AppCompatActivity {
             }
         });
 
-        choice2Button.setText(page.getChoice1().getTextId());
+        choice2Button.setText(Integer.toString(page.getChoice1().getTextId()));
         choice2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
