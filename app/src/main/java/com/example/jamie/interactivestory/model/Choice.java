@@ -10,7 +10,7 @@ public class Choice {
 
 
 
-    public Choice(int imageId, int textId) {
+    public Choice(int textId, int nextPage) {
         this.nextPage = nextPage;
         this.textId = textId;
     }

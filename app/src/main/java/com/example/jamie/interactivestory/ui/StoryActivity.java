@@ -2,9 +2,9 @@ package com.example.jamie.interactivestory.ui;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -60,7 +60,7 @@ public class StoryActivity extends AppCompatActivity {
         pageText = String.format(pageText, name);
         storyTextView.setText(pageText);
 
-        choice1Button.setText(Integer.toString(page.getChoice1().getTextId()));
+        choice1Button.setText(page.getChoice1().getTextId());
         choice1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +69,7 @@ public class StoryActivity extends AppCompatActivity {
             }
         });
 
-        choice2Button.setText(Integer.toString(page.getChoice1().getTextId()));
+        choice2Button.setText(page.getChoice2().getTextId());
         choice2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

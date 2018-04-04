@@ -50,7 +50,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/choice2Button"
+        android:id="@+id/choice1Button"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:background="@android:color/white"
@@ -60,10 +60,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:text="@string/page0_choice2" />
+        tools:text="@string/page0_choice1" />
 
     <Button
-        android:id="@+id/choice1Button"
+        android:id="@+id/choice2Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
@@ -74,6 +74,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:text="@string/page0_choice1" />
+        tools:text="@string/page0_choice2" />
 
 </android.support.constraint.ConstraintLayout>
