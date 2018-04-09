@@ -11,8 +11,8 @@ public class Choice {
 
 
     public Choice(int textId, int nextPage) {
-        this.nextPage = nextPage;
         this.textId = textId;
+        this.nextPage = nextPage;
     }
 
     public int getNextPage() {

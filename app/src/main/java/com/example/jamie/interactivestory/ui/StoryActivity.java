@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.example.jamie.interactivestory.R;
 import com.example.jamie.interactivestory.model.Page;
 
+import java.util.Stack;
+
 
 public class StoryActivity extends AppCompatActivity {
 
@@ -24,6 +26,7 @@ public class StoryActivity extends AppCompatActivity {
     private Button choice1Button;
     private Button choice2Button;
     private String name;
+    private Stack<Integer> pageStack = new Stack<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,8 @@ public class StoryActivity extends AppCompatActivity {
     }
 
     private void loadPage(int pageNumber) {
+        pageStack.push(pageNumber);
+
         final Page page = story.getPage(pageNumber);
 
         Drawable image = ContextCompat.getDrawable(this, page.getImageId());
@@ -59,9 +64,16 @@ public class StoryActivity extends AppCompatActivity {
         // add name if placeholder is included and wont add if not
         pageText = String.format(pageText, name);
         storyTextView.setText(pageText);
+
         if (page.isFinalPage()) {
             choice1Button.setVisibility(View.INVISIBLE);
             choice2Button.setText(R.string.play_again_button_text);
+            choice2Button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    loadPage(0);
+                }
+            });
 
         }
         else {
@@ -71,6 +83,7 @@ public class StoryActivity extends AppCompatActivity {
     }
 
     private void loadButtons(final Page page) {
+        choice1Button.setVisibility(View.VISIBLE);
         choice1Button.setText(page.getChoice1().getTextId());
         choice1Button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +93,7 @@ public class StoryActivity extends AppCompatActivity {
             }
         });
 
+        choice2Button.setVisibility(View.VISIBLE);
         choice2Button.setText(page.getChoice2().getTextId());
         choice2Button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +103,16 @@ public class StoryActivity extends AppCompatActivity {
             }
         });
     }
-}
+            @Override
+            public void onBackPressed() {
+                pageStack.pop();
+                if(pageStack.isEmpty()){
+                    super.onBackPressed();
+                }
+                else {
+                    loadPage(pageStack.pop());
+                }
+            }
+        }
 
 

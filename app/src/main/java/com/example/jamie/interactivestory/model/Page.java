@@ -12,15 +12,17 @@ public class Page {
     private boolean isFinalPage = false;
 
 
+    public Page(int imageId, int textId) {
+        this.imageId = imageId;
+        this.textId = textId;
+        this.isFinalPage = true;
+    }
+
     public Page(int imageId, int textId, Choice choice1, Choice choice2) {
         this.imageId = imageId;
         this.textId = textId;
         this.choice1 = choice1;
         this.choice2 = choice2;
-        this.isFinalPage = false;
-    }
-
-    public Page(int page5, int page51) {
     }
 
     public boolean isFinalPage() {
