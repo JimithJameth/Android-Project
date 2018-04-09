@@ -17,7 +17,7 @@ public class Page {
         this.textId = textId;
         this.choice1 = choice1;
         this.choice2 = choice2;
-        this.isFinalPage = true;
+        this.isFinalPage = false;
     }
 
     public Page(int page5, int page51) {
